@@ -190,15 +190,15 @@
       ctx.lineTo(airfoilPath.lower[i].x, airfoilPath.lower[i].y);
     }
     ctx.closePath();
-    ctx.fillStyle = "#2b2320";
+    ctx.fillStyle = "#000000";
     ctx.fill();
-    ctx.strokeStyle = "#c4623b";
+    ctx.strokeStyle = "#33ff33";
     ctx.lineWidth = 2;
     ctx.stroke();
   }
 
   function drawStreamlines() {
-    ctx.strokeStyle = "rgba(196, 98, 59, 0.5)";
+    ctx.strokeStyle = "rgba(51, 255, 51, 0.45)";
     ctx.lineWidth = 1.5;
     ctx.setLineDash([7, 9]);
 

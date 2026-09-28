@@ -12,7 +12,7 @@
 
   container.innerHTML =
     '<div class="site-header-inner">' +
-    '<a class="site-brand" href="' + home + '">' + title + "</a>" +
+    '<a class="site-brand" href="' + home + '">' + title + '<span class="cursor" aria-hidden="true">_</span></a>' +
     backLink +
     "</div>";
 })();
