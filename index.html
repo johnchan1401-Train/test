@@ -16,6 +16,10 @@
     </section>
 
     <div class="search-bar">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle>
+        <path d="M21 21l-4.3-4.3"></path>
+      </svg>
       <input
         type="text"
         id="search-input"
@@ -27,21 +31,46 @@
     <h2 class="section-title">Tools</h2>
     <div class="card-grid" id="tools-grid" data-kind="Tool">
       <a class="card" href="tools/colour-picker/index.html" data-name="colour picker color picker hex rgb hsl">
-        <div class="card-icon">🎨</div>
+        <div class="card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a9 9 0 1 0 0 18c1.2 0 2-1 2-2 0-.6-.2-1-.5-1.4-.3-.4-.5-.8-.5-1.3 0-1 .8-1.8 1.8-1.8H17a4 4 0 0 0 4-4c0-4.4-4-7.5-9-7.5Z"></path>
+            <circle cx="7.5" cy="10.5" r="1.1" fill="currentColor" stroke="none"></circle>
+            <circle cx="9.5" cy="7" r="1.1" fill="currentColor" stroke="none"></circle>
+            <circle cx="14" cy="7" r="1.1" fill="currentColor" stroke="none"></circle>
+            <circle cx="16.2" cy="10.3" r="1.1" fill="currentColor" stroke="none"></circle>
+          </svg>
+        </div>
         <h3>Colour Picker</h3>
         <p>Pick a color and see it live in HEX, RGB, and HSL, with one-click copy.</p>
         <span class="card-kind">Tool</span>
       </a>
+      <div class="card-ghost">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M12 5v14M5 12h14"></path>
+        </svg>
+        <span>More tools soon</span>
+      </div>
     </div>
 
     <h2 class="section-title">Lessons</h2>
     <div class="card-grid" id="lessons-grid" data-kind="Lesson">
       <a class="card" href="lessons/airfoil-visualiser/index.html" data-name="airfoil visualiser naca lift angle of attack aerodynamics">
-        <div class="card-icon">✈️</div>
+        <div class="card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 14c3-1.2 6.5-1.8 9-1.8 4.5 0 7.5-1.7 9-3.2-1 3-4.3 6-9.6 6.2-2.7.1-5.8.6-8.4 1.8Z"></path>
+            <path d="M9 13.5 6 19M13 12.3l1.4 6.2"></path>
+          </svg>
+        </div>
         <h3>Airfoil Visualiser</h3>
         <p>Shape a NACA airfoil and see how angle of attack bends the airflow around it.</p>
         <span class="card-kind">Lesson</span>
       </a>
+      <div class="card-ghost">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M12 5v14M5 12h14"></path>
+        </svg>
+        <span>More lessons soon</span>
+      </div>
     </div>
 
     <p class="empty-state" id="empty-state" hidden>No tools or lessons match your search.</p>
@@ -60,6 +89,7 @@
 
         grids.forEach(function (grid) {
           var cards = grid.querySelectorAll(".card");
+          var ghost = grid.querySelector(".card-ghost");
           var gridHasVisible = false;
 
           cards.forEach(function (card) {
@@ -72,7 +102,8 @@
             }
           });
 
-          grid.previousElementSibling.hidden = !gridHasVisible;
+          if (ghost) ghost.hidden = query !== "";
+          grid.previousElementSibling.hidden = !gridHasVisible && query !== "";
         });
 
         emptyState.hidden = visibleCount !== 0;
