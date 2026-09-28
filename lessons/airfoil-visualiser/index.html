@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Airfoil Visualiser · Just Tools</title>
+  <link rel="stylesheet" href="../../shared/style.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+
+  <main class="page">
+    <section class="tool-header">
+      <h1>✈️ Airfoil Visualiser</h1>
+      <p>Shape a NACA 4-digit airfoil and see how angle of attack bends the airflow around it.</p>
+    </section>
+
+    <div class="panel">
+      <canvas id="airfoil-canvas" width="900" height="420"></canvas>
+    </div>
+
+    <div class="panel">
+      <div class="field-row">
+        <label for="naca-code">NACA code</label>
+        <input type="text" id="naca-code" maxlength="4" inputmode="numeric" value="2412" />
+        <span class="explainer">4 digits: max camber / camber position / thickness</span>
+      </div>
+
+      <div class="field-row">
+        <label for="camber-input">Max camber</label>
+        <input type="range" id="camber-input" min="0" max="9" step="1" value="2" />
+        <span class="value" id="camber-value">2%</span>
+      </div>
+
+      <div class="field-row">
+        <label for="position-input">Camber position</label>
+        <input type="range" id="position-input" min="0" max="9" step="1" value="4" />
+        <span class="value" id="position-value">40%</span>
+      </div>
+
+      <div class="field-row">
+        <label for="thickness-input">Thickness</label>
+        <input type="range" id="thickness-input" min="1" max="40" step="1" value="12" />
+        <span class="value" id="thickness-value">12%</span>
+      </div>
+
+      <div class="field-row">
+        <label for="aoa-input">Angle of attack</label>
+        <input type="range" id="aoa-input" min="-10" max="20" step="1" value="8" />
+        <span class="value" id="aoa-value">8°</span>
+      </div>
+    </div>
+
+    <div class="panel explainer">
+      <p>
+        The four digits of a NACA airfoil code describe its shape: the first digit is the
+        <strong>maximum camber</strong> as a percentage of chord length, the second is the
+        <strong>position</strong> of that camber along the chord (in tenths), and the last two are
+        the <strong>thickness</strong> as a percentage of chord. Dragging the sliders edits the
+        code live and redraws the cross-section.
+      </p>
+      <p>
+        The <strong>angle of attack</strong> is the tilt between the airfoil's chord line and the
+        oncoming airflow. The animated lines are an illustration of how flow bends around the
+        shape as that angle changes &mdash; not a physical simulation.
+      </p>
+    </div>
+  </main>
+
+  <script src="../../shared/nav.js" data-home="../../index.html" data-title="Just Tools"></script>
+  <script src="script.js"></script>
+</body>
+</html>

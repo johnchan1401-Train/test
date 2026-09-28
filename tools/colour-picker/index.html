@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Colour Picker · Just Tools</title>
+  <link rel="stylesheet" href="../../shared/style.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+
+  <main class="page">
+    <section class="tool-header">
+      <h1>🎨 Colour Picker</h1>
+      <p>Pick a color and see it live in HEX, RGB, and HSL. Click a value to copy it.</p>
+    </section>
+
+    <div class="panel">
+      <div class="field-row">
+        <label for="color-input">Color</label>
+        <input type="color" id="color-input" value="#5fb3ff" />
+      </div>
+
+      <div class="field-row">
+        <label for="hex-value">HEX</label>
+        <output id="hex-value" class="format-value"></output>
+        <button type="button" data-copy-target="hex-value">Copy</button>
+      </div>
+
+      <div class="field-row">
+        <label for="rgb-value">RGB</label>
+        <output id="rgb-value" class="format-value"></output>
+        <button type="button" data-copy-target="rgb-value">Copy</button>
+      </div>
+
+      <div class="field-row">
+        <label for="hsl-value">HSL</label>
+        <output id="hsl-value" class="format-value"></output>
+        <button type="button" data-copy-target="hsl-value">Copy</button>
+      </div>
+
+      <p class="copy-status" id="copy-status" aria-live="polite"></p>
+    </div>
+  </main>
+
+  <script src="../../shared/nav.js" data-home="../../index.html" data-title="Just Tools"></script>
+  <script src="script.js"></script>
+</body>
+</html>

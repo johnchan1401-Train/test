@@ -1,0 +1,10 @@
+.format-value {
+  cursor: pointer;
+}
+
+.copy-status {
+  min-height: 1.2em;
+  margin: 0.75rem 0 0;
+  color: var(--color-accent-strong);
+  font-size: 0.85rem;
+}

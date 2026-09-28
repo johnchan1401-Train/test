@@ -1,0 +1,11 @@
+#airfoil-canvas {
+  aspect-ratio: 900 / 420;
+}
+
+.explainer p {
+  margin: 0 0 0.75rem;
+}
+
+.explainer p:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Just Tools</title>
+  <link rel="stylesheet" href="shared/style.css" />
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+
+  <main class="page">
+    <section class="hero">
+      <h1>Just Tools</h1>
+      <p>A growing collection of small web tools and learning artifacts. Browse, click, try.</p>
+    </section>
+
+    <div class="search-bar">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search tools and lessons..."
+        autocomplete="off"
+      />
+    </div>
+
+    <h2 class="section-title">Tools</h2>
+    <div class="card-grid" id="tools-grid" data-kind="Tool">
+      <a class="card" href="tools/colour-picker/index.html" data-name="colour picker color picker hex rgb hsl">
+        <div class="card-icon">🎨</div>
+        <h3>Colour Picker</h3>
+        <p>Pick a color and see it live in HEX, RGB, and HSL, with one-click copy.</p>
+        <span class="card-kind">Tool</span>
+      </a>
+    </div>
+
+    <h2 class="section-title">Lessons</h2>
+    <div class="card-grid" id="lessons-grid" data-kind="Lesson">
+      <a class="card" href="lessons/airfoil-visualiser/index.html" data-name="airfoil visualiser naca lift angle of attack aerodynamics">
+        <div class="card-icon">✈️</div>
+        <h3>Airfoil Visualiser</h3>
+        <p>Shape a NACA airfoil and see how angle of attack bends the airflow around it.</p>
+        <span class="card-kind">Lesson</span>
+      </a>
+    </div>
+
+    <p class="empty-state" id="empty-state" hidden>No tools or lessons match your search.</p>
+  </main>
+
+  <script src="shared/nav.js" data-home="index.html" data-title="Just Tools" data-page="home"></script>
+  <script>
+    (function () {
+      var input = document.getElementById("search-input");
+      var grids = [document.getElementById("tools-grid"), document.getElementById("lessons-grid")];
+      var emptyState = document.getElementById("empty-state");
+
+      input.addEventListener("input", function () {
+        var query = input.value.trim().toLowerCase();
+        var visibleCount = 0;
+
+        grids.forEach(function (grid) {
+          var cards = grid.querySelectorAll(".card");
+          var gridHasVisible = false;
+
+          cards.forEach(function (card) {
+            var haystack = (card.dataset.name || "") + " " + card.textContent;
+            var matches = haystack.toLowerCase().indexOf(query) !== -1;
+            card.hidden = !matches;
+            if (matches) {
+              gridHasVisible = true;
+              visibleCount++;
+            }
+          });
+
+          grid.previousElementSibling.hidden = !gridHasVisible;
+        });
+
+        emptyState.hidden = visibleCount !== 0;
+      });
+    })();
+  </script>
+</body>
+</html>
