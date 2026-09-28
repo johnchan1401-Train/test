@@ -12,3 +12,7 @@ Guidance for Claude Code (and other contributors) working in this repository.
 - No package manager / `node_modules` dependency for shipping the site — write plain `.html`, `.css`, and `.js` files that run directly in the browser with no compile or transpile step.
 - Use modern standard browser APIs (ES modules, `fetch`, CSS custom properties, etc.) instead of pulling in a library to do the same job.
 - If a third-party script is unavoidable, load it directly via a `<script>` tag (e.g. from a CDN) rather than installing it as a build dependency.
+
+## Working conventions
+
+- Before implementing any non-trivial feature, ask clarifying questions about scope, edge cases, and constraints first — don't propose a plan until you've asked.
